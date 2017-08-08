@@ -1,0 +1,40 @@
+<div style="max-width: 850px; margin: 25px auto 0 auto; ">
+    <div class="section title-section mobile-title">
+        <h4 class="title">
+            <span class="attribute">Author</span>: <span class="capitalize">{{dataObject.author}} </span>
+        </h4>
+        <h4 class="title">
+            <span class="attribute">Birthday</span>: {{dataObject.birthday}} 
+        </h4>
+        <h4 class="title">
+            <span class="attribute">Place of Birth</span>: <span class="capitalize">{{dataObject.birthPlace}}</span>
+        </h4>
+    </div>
+
+
+
+
+    <div class="row section items-section align-center" style="margin-bottom: 0">
+        <div style="padding: 20px 20px 0 20px;"> 
+            <h4 class="">
+                <span class="capitalize">{{dataObject.author}}'s Books</span>
+            </h4>
+            <div class="section align-right" >
+                Sort By: &nbsp;
+                <input type="radio" value="0" name="title" [(ngModel)]="sortBy" (change)="sorting(dataObject.books)"> Title
+                &nbsp;
+                <input type="radio" value="1" name="publishDate" [(ngModel)]="sortBy" (change)="sorting(dataObject.books)"> Publish Date
+            </div>
+        </div>
+
+        <div class="col-md-6 item" *ngFor="let book of dataObject.books">
+            <h5><a href="{{book.purchaseLink}}">{{book.title}}</a></h5>
+            <h5>{{book.PublishDate != null ? book.PublishDate : book.PublishYear}}</h5>
+            <div class="item-image-container">
+                <img src="{{book.imageUrl}}" />
+            </div>
+        </div>
+    </div>
+</div>
+
+
